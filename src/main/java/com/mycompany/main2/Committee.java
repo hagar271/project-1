@@ -1,29 +1,32 @@
 
 package com.mycompany.main2;
+import java.util.ArrayList;
 
 public class Committee {
-    public enum CommitteeType 
-    {Fixed, NonFixed}
-    private int committeeId;
+    
+    public enum Type {Fixed, NonFixed}
+    public enum FixedFile { EDUCATION, FOOD, BRIDES, HUMAN, PENALTIES, HEALTH }
+    
+    private int id;
     private String name;
-    private CommitteeType type;
-
-    private java.util.List<Project> projects = new java.util.ArrayList<>();
-    private java.util.List<Beneficiary> beneficiaries = new java.util.ArrayList<>();
-    public Committee(int committeeId, String name, CommitteeType type) {
-        this.committeeId = committeeId;
+    private Type type;
+    private ArrayList<Project> projects = new ArrayList<>();
+    private ArrayList<Beneficiary> beneficiaries = new ArrayList<>();
+    
+    public Committee(int id, String name, Type type ) {
+        this.id = id;
         this.name = name;
         this.type = type;
     }
-    public int getCommitteeId() 
-    { return committeeId; }
+    public int getId() 
+    { return id; }
     public String getName()
     { return name; }
-    public CommitteeType getType()
+    public Type getType()
     { return type; }
 
-    public java.util.List<Project> getProjects() { return projects; }
-    public java.util.List<Beneficiary> getBeneficiaries() { return beneficiaries; }
+    public ArrayList<Project> getProjects() { return projects; }
+    public ArrayList<Beneficiary> getBeneficiaries() { return beneficiaries; }
     
         public void addProject(Project p) {
         if (!projects.contains(p)) {
