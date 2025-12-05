@@ -17,7 +17,7 @@ public class Project {
         this.fileType = fileType;
     }
 
-// جيترز وستيرز
+
     public int getProjectId() { return projectId; }
     public String getProjectName() { return projectName; }
     public String getFileType() { return fileType; }

@@ -12,12 +12,12 @@ public class Admin extends User {
 
     @Override
     public boolean login(String username, String password) {
-        return this.username.equals(username) && password.equals(password);
+        return this.username.equals(username) && this.password.equals(password);
     }
 @Override
     public ArrayList<Beneficiary> viewBeneficiaries() {
        
-    //return DatabaseHelper.getAllBeneficiaries(); هنربطه بالداتا بيز ونكتب دي
+    //return DatabaseHelper.getAllBeneficiaries(); هنربطه بالداتا بيز 
         return new ArrayList<>();
        
     }
@@ -29,13 +29,10 @@ public class Admin extends User {
     }
     
     
-    // Admin-only features
+
     public void editBeneficiary(Beneficiary b, String newStatus) {
         b.setStatus(newStatus);
-        System.out.println("The status has been updated "+ b.getFullName() +"to" + newStatus);
+        System.out.println("Status updated for "+ b.getFullName() +"to" + newStatus);
     }
 
-    void updateBeneficiaryStatus(Beneficiary b1, String approved) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }

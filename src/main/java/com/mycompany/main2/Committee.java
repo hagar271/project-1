@@ -6,10 +6,14 @@ public class Committee {
     
     public enum Type {Fixed, NonFixed}
     public enum FixedFile { EDUCATION, FOOD, BRIDES, HUMAN, PENALTIES, HEALTH }
+    public enum NonFixedArea { AlZohour,AlSafti, AlManshiya, AlThawraStreet, AhmedMaherStreet, AlQitaa,
+        KafrMalit, AlAtf, AlBahrStreet, OutsideAlMahmoudiya}
     
     private int id;
     private String name;
     private Type type;
+    private FixedFile fixedFile;     
+    private NonFixedArea area;        
     private ArrayList<Project> projects = new ArrayList<>();
     private ArrayList<Beneficiary> beneficiaries = new ArrayList<>();
     
@@ -17,6 +21,19 @@ public class Committee {
         this.id = id;
         this.name = name;
         this.type = type;
+    }
+
+    public FixedFile getFixedFile() {
+        return fixedFile;
+    }
+    public void setFixedFile(FixedFile fixedFile) {
+        this.fixedFile = fixedFile;
+    }
+    public NonFixedArea getArea() {
+        return area;
+    }
+    public void setArea(NonFixedArea area) {
+        this.area = area;
     }
     public int getId() 
     { return id; }

@@ -28,7 +28,7 @@ public class Beneficiary {
         this.age = age;
     }
 
-    // جيترز وستيرز مهمين
+    
     public String getNationalId() { return nationalId; }
     public String getFullName() { return fullName; }
     public int getAge() { return age; }
@@ -44,6 +44,11 @@ public class Beneficiary {
     public void setSeverity(Severity severity) { this.severity = severity; }
     public Committee getCommittee() { return committee; }
     public void setCommittee(Committee committee) { this.committee = committee; }
-
+    public void setStreet(String street) { this.street = street;}
+    public void setJob(String job) { this.job = job;}
+    public void setHousingType(String housingType) { this.housingType = housingType;}
+    public String getStreet() { return street; }
+    public String getJob() { return job;}
+    public String getHousingType() { return housingType;}
 
 }
