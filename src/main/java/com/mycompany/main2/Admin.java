@@ -16,9 +16,8 @@ public class Admin extends User {
     }
 @Override
     public ArrayList<Beneficiary> viewBeneficiaries() {
-       
-    //return DatabaseHelper.getAllBeneficiaries(); هنربطه بالداتا بيز 
-        return new ArrayList<>();
+// ⬅️ الآن يستخدم BeneficiaryDAO لجلب كل المستفيدين (صلاحية Admin)
+    return BeneficiaryDAO.getAllBeneficiaries();
        
     }
 
@@ -30,9 +29,16 @@ public class Admin extends User {
     
     
 
-    public void editBeneficiary(Beneficiary b, String newStatus) {
-        b.setStatus(newStatus);
-        System.out.println("Status updated for "+ b.getFullName() +"to" + newStatus);
-    }
+public boolean addBeneficiary(Beneficiary b) {
+    return BeneficiaryDAO.addBeneficiary(b);
+}
 
+public boolean updateBeneficiary(Beneficiary b) {
+    return BeneficiaryDAO.updateBeneficiary(b);
+}
+
+public boolean deleteBeneficiary(String nationalId) {
+    return BeneficiaryDAO.deleteBeneficiary(nationalId);
+
+}
 }

@@ -3,7 +3,8 @@ package com.mycompany.main2;
 
 import java.util.ArrayList;
 public abstract class User {
-   protected int userId;
+
+    protected int userId;
    protected String fullName;
    protected String nationalId;
    protected String phone;
@@ -26,14 +27,14 @@ public abstract class User {
         this.password = password;
         this.role = role;
     }
-   
- public String getUsername() { return username; }
+
+    public String getUsername() { return username; }
     public String getPassword() { return password; }
     public String getRole() { return role; }
     public String getFullName() { return fullName; }
    
-    public abstract boolean login(String username, String password);
-    public abstract ArrayList<Beneficiary> viewBeneficiaries();
-    public abstract ArrayList<Project> viewProjects();
+    public abstract boolean login(String username, String password); 
+    public abstract ArrayList<Beneficiary> viewBeneficiaries(); 
+    public abstract ArrayList<Project> viewProjects(); // 
 
 }

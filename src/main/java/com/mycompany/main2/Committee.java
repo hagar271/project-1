@@ -32,7 +32,7 @@ public class Committee {
     public NonFixedArea getArea() {
         return area;
     }
-    public void setArea(NonFixedArea area) {
+    public void setNonFixedArea(NonFixedArea area) {
         this.area = area;
     }
     public int getId() 

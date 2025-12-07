@@ -4,10 +4,10 @@ package com.mycompany.main2;
 public class Beneficiary {
 
     public enum Region
-    {AlZohour, AlSafti, AlManshiya, AlThawraStreet, AhmedMaherStreet, AlQitaa, KafrMalit, AlAtf, AlBahrStreet, OutsideAlMahmoudiya}
+    {AlZohour, AlSafti, AlManshiya, AlThawraStreet, AhmedMaherStreet, AlQataa, KafrMalit, AlAtf, AlBahrStreet, OutsideAlMahmoudiya}
 
     public enum Severity  
-    {RED, YELLOW, GREEN}
+    {RED, YELLOW, GREEN, Null_Level}
     
     private String nationalId;
     private String fullName;
@@ -27,28 +27,33 @@ public class Beneficiary {
         this.fullName = fullName;
         this.age = age;
     }
-
-    
-    public String getNationalId() { return nationalId; }
-    public String getFullName() { return fullName; }
-    public int getAge() { return age; }
-    public String getPhone() { return phone; }
     public void setPhone(String phone) { this.phone = phone; }
-    public Region getRegion() { return region; }
-    public void setRegion(Region region) { this.region = region; }
-    public double getIncome() { return income; }
+    public void setRegion(Region region) { this.region = region; }  
     public void setIncome(double income) { this.income = income; }
-    public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
-    public Severity getSeverity() { return severity; }
     public void setSeverity(Severity severity) { this.severity = severity; }
-    public Committee getCommittee() { return committee; }
     public void setCommittee(Committee committee) { this.committee = committee; }
     public void setStreet(String street) { this.street = street;}
     public void setJob(String job) { this.job = job;}
     public void setHousingType(String housingType) { this.housingType = housingType;}
+
+
+    public String getNationalId() { return nationalId; }
+    public String getFullName() { return fullName; }
+    public int getAge() { return age; }
+    public String getPhone() { return phone; }
+    public Region getRegion() { return region; }
+    public double getIncome() { return income; }
+    public String getStatus() { return status; }
+    public Severity getSeverity() { return severity; }
+    public Committee getCommittee() { return committee; }
     public String getStreet() { return street; }
     public String getJob() { return job;}
     public String getHousingType() { return housingType;}
+
+    @Override
+    public String toString() {
+        return "Beneficiary{" + "nationalId=" + nationalId + ", fullName=" + fullName + ", age=" + age + ", phone=" + phone + ", street=" + street + ", region=" + region + ", income=" + income + ", job=" + job + ", housingType=" + housingType + ", status=" + status + ", severity=" + severity + ", committee=" + committee + '}';
+    }
 
 }
