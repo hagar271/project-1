@@ -23,7 +23,6 @@ public class Admin extends User {
 
 @Override
     public ArrayList<Project> viewProjects() {
-       // return DatabaseHelper.getAllProjects(); هنربطه بالداتا بيز برده
        return new ArrayList<>();
     }
     
