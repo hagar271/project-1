@@ -107,19 +107,19 @@ public class login extends javax.swing.JFrame {
          String id = idField.getText();
         String pass = new String(PasswordField.getPassword());
 
-if(id.equals("Leader") && pass.equals("122026")) {  
+if(id.equals("2022") && pass.equals("122026")) {  
 
     AdminDashboard leaderPage = new AdminDashboard();
     leaderPage.setVisible(true);
     this.dispose();
 
-} else if(id.equals("Manager") && pass.equals("112233")) {  
+} else if(id.equals("2023") && pass.equals("122026")) {  
 
     NonFixedProjectsPage managerPage = new NonFixedProjectsPage();
     managerPage.setVisible(true);
     this.dispose();
 
-} else if(id.equals("Employee") && pass.equals("445566")) {  
+} else if(id.equals("2024") && pass.equals("122026")) {  
 
     location employeePage = new location();
     employeePage.setVisible(true);
