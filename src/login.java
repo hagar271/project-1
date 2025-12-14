@@ -107,14 +107,27 @@ public class login extends javax.swing.JFrame {
          String id = idField.getText();
         String pass = new String(PasswordField.getPassword());
 
-       if(id.equals("Leader")&& pass.equals("122026")) {  
-    // افتح صفحة الاختيارات
-    AdminDashboard loc = new AdminDashboard(); // ممكن تخلي userType ثابت أو تحطي أي اسم
-    loc.setVisible(true);
+if(id.equals("Leader") && pass.equals("122026")) {  
+
+    AdminDashboard leaderPage = new AdminDashboard();
+    leaderPage.setVisible(true);
     this.dispose();
-        } else {
-    JOptionPane.showMessageDialog(this, "Password غير صحيح");
-          }
+
+} else if(id.equals("Manager") && pass.equals("112233")) {  
+
+    NonFixedProjectsPage managerPage = new NonFixedProjectsPage();
+    managerPage.setVisible(true);
+    this.dispose();
+
+} else if(id.equals("Employee") && pass.equals("445566")) {  
+
+    location employeePage = new location();
+    employeePage.setVisible(true);
+    this.dispose();
+
+} else {
+    JOptionPane.showMessageDialog(this, "ID أو Password غير صحيح ❌");
+}
             
         
     }//GEN-LAST:event_logButtonActionPerformed
