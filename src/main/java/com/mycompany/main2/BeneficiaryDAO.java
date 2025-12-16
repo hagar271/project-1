@@ -233,7 +233,7 @@ public static boolean deleteBeneficiary(String nationalId) {
             if (mappedRegion != null) {
                 b.setRegion(mappedRegion);
             } else {
-                 System.err.println("Warning: Unmapped region value: " + regionValue);
+                 System.err.println("Warning: Unmapped region value: " + regionValue + " ");
             }
         }
 
