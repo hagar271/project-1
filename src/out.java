@@ -259,17 +259,17 @@ public class out extends javax.swing.JFrame {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-          DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-           String inside =jTextField1.getText();
-           String phone = jTextField2.getText();
-           String job = jTextField3.getText();
-           String age = jTextField4.getText();
-           String status = jTextField5.getText();
-           String name = jTextField6.getText();
+ DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+           String name =jTextField1.getText();
+           String status = jTextField2.getText();
+           String age = jTextField3.getText();
+           String job = jTextField4.getText();
+           String phone = jTextField5.getText();
+           String inside = jTextField6.getText();
            String house = jTextField7.getText();
            String h = jTextField8.getText();
            
-            if(inside.isEmpty() || phone.isEmpty() || job.isEmpty() || age.isEmpty() || status.isEmpty() || name.isEmpty() || h.isEmpty()|| house.isEmpty() ) {
+            if(name.isEmpty() || status.isEmpty() || age.isEmpty() || job.isEmpty() || phone.isEmpty() || inside.isEmpty() || house.isEmpty()|| h.isEmpty() ) {
           JOptionPane.showMessageDialog(null, "اكمل كل البيانات قبل الإضافة");
         return;
             }
