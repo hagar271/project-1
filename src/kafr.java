@@ -289,8 +289,8 @@ public class kafr extends javax.swing.JFrame {
            String age = ageTextField.getText();
            String status = caseTextField.getText();
            String name = nameTextField.getText();
-           String house = hTextField.getText();
-           String h = houseTextField.getText();
+           String house = houseTextField.getText();
+           String h = hTextField.getText();
            
             if(inside.isEmpty() || phone.isEmpty() || job.isEmpty() || age.isEmpty() || status.isEmpty() || name.isEmpty() || h.isEmpty()|| house.isEmpty() ) {
           JOptionPane.showMessageDialog(null, "اكمل كل البيانات قبل الإضافة");
