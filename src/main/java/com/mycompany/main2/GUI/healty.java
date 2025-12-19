@@ -1,5 +1,8 @@
 package com.mycompany.main2.GUI;
 
+import com.mycompany.main2.HelpCase;
+import com.mycompany.main2.HelpDAO;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
 public class healty extends javax.swing.JFrame {
@@ -9,6 +12,7 @@ public class healty extends javax.swing.JFrame {
     
     public healty() {
         initComponents();
+        loadData();
     }
 
     
@@ -318,4 +322,64 @@ public class healty extends javax.swing.JFrame {
     private javax.swing.JLabel malyaLabel;
     private javax.swing.JLabel nameLabel;
     // End of variables declaration//GEN-END:variables
+
+    
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {
+    HelpCase h = new HelpCase();
+    h.name = jTextField1.getText();
+    h.projectName = jTextField2.getText();
+    // نملأ بيانات الصحة فقط والباقي يذهب Null
+    h.examinationType = jTextField3.getText();
+    h.medications = jTextField4.getText();
+    h.medicalAnalysis = jTextField5.getText();
+    h.surgery = jTextField6.getText();
+    h.xRay = jTextField7.getText();
+
+    if (HelpDAO.addHelpCase(h)) {
+        JOptionPane.showMessageDialog(this, "تمت الإضافة");
+        loadData(); // لتحديث الجدول
+    }
+}
+    
+    
+    
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {
+    int selectedRow = jTable1.getSelectedRow();
+    
+    if (selectedRow == -1) {
+        JOptionPane.showMessageDialog(this, "من فضلك اختاري الصف اللي عاوزه تمسحيه");
+        return;
+    }
+
+    // بناخد الاسم من آخر عمود في الجدول (عمود الاسم)
+    int lastColumn = jTable1.getColumnCount() - 1;
+    String nameToDelete = jTable1.getValueAt(selectedRow, lastColumn).toString();
+
+    int confirm = JOptionPane.showConfirmDialog(this, "هل أنتِ متأكدة من حذف: " + nameToDelete + "؟");
+    
+    if (confirm == JOptionPane.YES_OPTION) {
+        if (HelpDAO.deleteHelpCase(nameToDelete)) {
+            JOptionPane.showMessageDialog(this, "تم الحذف بنجاح");
+            loadData(); // تحديث الجدول بعد الحذف
+        } else {
+            JOptionPane.showMessageDialog(this, "حدث خطأ أثناء الحذف");
+        }
+    }
+}
+ public void loadData() {
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    model.setRowCount(0);
+    ArrayList<HelpCase> list = HelpDAO.getAllHelpCases();
+
+    for (HelpCase h : list) {
+        // شرط: لو الحالة دي ليها بيانات في أعمدة الصحة (مش فاضية) اعرضها
+        if (h.examinationType != null || h.surgery != null) {
+            Object[] row = {
+                h.xRay, h.surgery, h.medicalAnalysis, h.medications, 
+                h.examinationType, h.getProjectName(), h.getName()
+            };
+            model.addRow(row);
+        }
+    }
+}
 }

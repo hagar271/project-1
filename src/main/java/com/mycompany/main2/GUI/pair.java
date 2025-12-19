@@ -1,5 +1,8 @@
 package com.mycompany.main2.GUI;
 
+import com.mycompany.main2.HelpCase;
+import com.mycompany.main2.HelpDAO;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
 
@@ -11,6 +14,7 @@ public class pair extends javax.swing.JFrame {
     
     public pair() {
         initComponents();
+        loadData();
     }
 
    
@@ -279,4 +283,71 @@ public class pair extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
+
+    
+    
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {
+    HelpCase h = new HelpCase();
+    h.name = jTextField1.getText();
+    h.projectName = jTextField2.getText();
+    
+    // بيانات العرايس
+    h.weddingDate = jTextField3.getText();
+    h.needsRequirements = jTextField4.getText();
+    h.marriageContract = jTextField5.getText();
+
+    if (HelpDAO.addHelpCase(h)) {
+        JOptionPane.showMessageDialog(this, "تمت إضافة بيانات العرايس بنجاح");
+        loadData();
+    } else {
+        JOptionPane.showMessageDialog(this, "حدث خطأ أثناء الحفظ");
+    }
+}
+    
+    
+    
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {
+    int selectedRow = jTable1.getSelectedRow();
+    
+    if (selectedRow == -1) {
+        JOptionPane.showMessageDialog(this, "من فضلك اختاري الصف اللي عاوزه تمسحيه");
+        return;
+    }
+
+    // بناخد الاسم من آخر عمود في الجدول (عمود الاسم)
+    int lastColumn = jTable1.getColumnCount() - 1;
+    String nameToDelete = jTable1.getValueAt(selectedRow, lastColumn).toString();
+
+    int confirm = JOptionPane.showConfirmDialog(this, "هل أنتِ متأكدة من حذف: " + nameToDelete + "؟");
+    
+    if (confirm == JOptionPane.YES_OPTION) {
+        if (HelpDAO.deleteHelpCase(nameToDelete)) {
+            JOptionPane.showMessageDialog(this, "تم الحذف بنجاح");
+            loadData(); // تحديث الجدول بعد الحذف
+        } else {
+            JOptionPane.showMessageDialog(this, "حدث خطأ أثناء الحذف");
+        }
+    }
+}
+    
+    public void loadData() {
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    model.setRowCount(0);
+    ArrayList<HelpCase> list = HelpDAO.getAllHelpCases();
+
+    for (HelpCase h : list) {
+        // بنعرض فقط الصفوف اللي فيها بيانات عرايس
+        if (h.weddingDate != null || h.needsRequirements != null) {
+            Object[] row = {
+                h.marriageContract,   // 1. كتب الكتاب (أقصى اليسار برمجياً)
+                h.needsRequirements,  // 2. الاحتياجات
+                h.weddingDate,        // 3. موعد الفرح
+                h.getProjectName(),   // 4. منطقه
+                h.getName()           // 5. الاسم (أقصى اليمين برمجياً)
+            };
+            model.addRow(row);
+        }
+    }
+}
+
 }

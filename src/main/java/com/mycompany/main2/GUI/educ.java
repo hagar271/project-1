@@ -2,6 +2,9 @@ package com.mycompany.main2.GUI;
 
 import com.mycompany.main2.Beneficiary;
 import com.mycompany.main2.BeneficiaryDAO;
+import com.mycompany.main2.HelpCase;
+import com.mycompany.main2.HelpDAO;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
 public class educ extends javax.swing.JFrame {
@@ -11,7 +14,7 @@ public class educ extends javax.swing.JFrame {
     
     public educ() {
         initComponents();
-   
+   loadData();
     }
     
 
@@ -309,4 +312,76 @@ public class educ extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
+
+    
+    
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {
+    HelpCase h = new HelpCase();
+    h.name = jTextField1.getText();
+    h.projectName = jTextField2.getText();
+    
+    // بيانات التعليم
+    h.foundationLessons = jTextField3.getText(); 
+    h.schoolFees = jTextField4.getText();
+    h.schoolBooks = jTextField5.getText();
+    h.teachersNames = jTextField6.getText();
+
+    if (HelpDAO.addHelpCase(h)) {
+        JOptionPane.showMessageDialog(this, "تمت إضافة بيانات التعليم بنجاح");
+        loadData();
+    } else {
+        JOptionPane.showMessageDialog(this, "حدث خطأ أثناء الحفظ");
+    }
+}
+    
+    
+    
+  private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {
+    int selectedRow = jTable1.getSelectedRow();
+    
+    if (selectedRow == -1) {
+        JOptionPane.showMessageDialog(this, "من فضلك اختاري الصف اللي عاوزه تمسحيه");
+        return;
+    }
+
+    // بناخد الاسم من آخر عمود في الجدول (عمود الاسم)
+    int lastColumn = jTable1.getColumnCount() - 1;
+    String nameToDelete = jTable1.getValueAt(selectedRow, lastColumn).toString();
+
+    int confirm = JOptionPane.showConfirmDialog(this, "هل أنتِ متأكدة من حذف: " + nameToDelete + "؟");
+    
+    if (confirm == JOptionPane.YES_OPTION) {
+        if (HelpDAO.deleteHelpCase(nameToDelete)) {
+            JOptionPane.showMessageDialog(this, "تم الحذف بنجاح");
+            loadData(); // تحديث الجدول بعد الحذف
+        } else {
+            JOptionPane.showMessageDialog(this, "حدث خطأ أثناء الحذف");
+        }
+    }
+}  
+    
+  
+    
+    public void loadData() {
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    model.setRowCount(0);
+    ArrayList<HelpCase> list = HelpDAO.getAllHelpCases();
+
+    for (HelpCase h : list) {
+        // الشرط لضمان عرض حالات التعليم فقط
+        if (h.schoolBooks != null && !h.schoolBooks.trim().isEmpty()) {
+            
+            // الترتيب الصحيح للأعمدة (من اليسار لليمين برمجياً)
+            Object[] row = {
+                h.schoolBooks,        // 1. كتب الدراسية (أول عمود من الشمال)
+                h.schoolFees,         // 2. مصاريف المدرسة
+                h.teachersNames,      // 3. اسماء مدرسين
+                h.foundationLessons,  // 4. دروس تأسيس (هنا كان بيتحط h.xRay بالخطأ)
+                h.getProjectName(),   // 5. منطقة
+                h.getName()           // 6. الاسم (أخر عمود على اليمين)
+            };
+            model.addRow(row);
+        }
+    }
+}
 }

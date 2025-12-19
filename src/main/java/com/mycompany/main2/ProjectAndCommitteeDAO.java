@@ -49,4 +49,35 @@ public class ProjectAndCommitteeDAO {
         }
         return projectNames;
     }
+    
+    public static ArrayList<Project> getFixedProjectsByFile(String fileName) {
+
+    ArrayList<Project> projects = new ArrayList<>();
+
+    String sql = "SELECT id_project, name_project FROM projects " +
+                 "WHERE type = 'fixed' AND file_name = ?";
+
+    try (Connection conn = DatabaseConnection.getConnection();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+        stmt.setString(1, fileName);
+
+        try (ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                Project p = new Project(
+                    rs.getInt("id_project"),
+                    rs.getString("name_project"),
+                    "Fixed"
+                );
+                projects.add(p);
+            }
+        }
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return projects;
+}
+
 }
