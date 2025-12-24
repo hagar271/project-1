@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class HelpDAO {
     public static ArrayList<HelpCase> getAllHelpCases() {
         ArrayList<HelpCase> list = new ArrayList<>();
-        // هنجيب كل البيانات من الجدول الشامل help
         String sql = "SELECT * FROM help"; 
 
         try (Connection conn = DatabaseConnection.getConnection();
@@ -15,9 +14,8 @@ public class HelpDAO {
             while (rs.next()) {
                 HelpCase h = new HelpCase();
                 h.name = rs.getNString("name");
-                h.projectName = rs.getNString("name_project"); // العمود اللي فيه المنطقة
+                h.projectName = rs.getNString("name_project");
                 
-                // بنملى كل الحقول من الجدول الشامل
                 h.examinationType = rs.getNString("Examination_Type");
                 h.medications = rs.getNString("Medications");
                 h.medicalAnalysis = rs.getNString("Medical_Analysis");
@@ -52,7 +50,6 @@ public class HelpDAO {
     }
 
     
-    // 1. ميثود الإضافة الشاملة (تأكدي من ترتيب العواميد كما في SQL)
     public static boolean addHelpCase(HelpCase h) {
         String sql = "INSERT INTO help (name, name_project, Examination_Type, Medications, Medical_Analysis, Surgery, X_Ray, "
                    + "Foundation_Lessons, School_Fees, School_Books, Teachers_Names, "
@@ -99,7 +96,6 @@ public class HelpDAO {
         }
     }
 
-    // 2. ميثود الحذف بناءً على الاسم (تعمل في كل الملفات)
     public static boolean deleteHelpCase(String name) {
         String sql = "DELETE FROM help WHERE name = ?";
         try (Connection conn = DatabaseConnection.getConnection();

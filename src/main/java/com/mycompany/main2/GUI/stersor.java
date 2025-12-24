@@ -55,7 +55,7 @@ public class stersor extends javax.swing.JFrame {
 
             },
             new String [] {
-                "الاحتياج", "نوع مسكن", "الداخل", "التليفون", "الوظيفه", "السن", "الحاله", "الاسم"
+                "منطقه", "نوع مسكن", "الداخل", "التليفون", "الوظيفه", "السن", "الحاله", "الاسم"
             }
         ) {
             Class[] types = new Class [] {
@@ -67,8 +67,6 @@ public class stersor extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(jTable1);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/لوجو.jpg"))); // NOI18N
 
         backButton.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         backButton.setForeground(new java.awt.Color(0, 102, 153));
@@ -127,7 +125,7 @@ public class stersor extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 102, 153));
-        jLabel9.setText("الاحتياج");
+        jLabel9.setText("منطقه");
 
         jTextField1.setBackground(new java.awt.Color(0, 102, 153));
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
@@ -242,7 +240,6 @@ public class stersor extends javax.swing.JFrame {
                                     .addComponent(jLabel7)
                                     .addComponent(jLabel8)
                                     .addComponent(jLabel9))))
-                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

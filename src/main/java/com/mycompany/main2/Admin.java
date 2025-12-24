@@ -16,7 +16,6 @@ public class Admin extends User {
     }
 @Override
     public ArrayList<Beneficiary> viewBeneficiaries() {
-// ⬅️ الآن يستخدم BeneficiaryDAO لجلب كل المستفيدين (صلاحية Admin)
     return BeneficiaryDAO.getAllBeneficiaries();
        
     }

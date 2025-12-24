@@ -55,7 +55,7 @@ public class kat extends javax.swing.JFrame {
 
             },
             new String [] {
-                "احتياج", "نوع مسكن", "الداخل", "التليفون", "الوظيفه", "السن", "الحاله", "الاسم"
+                "منطقه", "نوع مسكن", "الداخل", "التليفون", "الوظيفه", "السن", "الحاله", "الاسم"
             }
         ) {
             Class[] types = new Class [] {
@@ -67,8 +67,6 @@ public class kat extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(jTable1);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/لوجو.jpg"))); // NOI18N
 
         backButton.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         backButton.setForeground(new java.awt.Color(0, 102, 153));
@@ -127,7 +125,7 @@ public class kat extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 102, 153));
-        jLabel9.setText("احتياج");
+        jLabel9.setText("منطقه");
 
         jTextField1.setBackground(new java.awt.Color(0, 102, 153));
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
@@ -171,9 +169,7 @@ public class kat extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel9)
                         .addGap(43, 43, 43))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jLabel1))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)

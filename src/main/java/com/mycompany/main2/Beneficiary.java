@@ -3,6 +3,9 @@ package com.mycompany.main2;
 
 public class Beneficiary {
 
+    public Beneficiary() {
+     }
+
     public enum Region
     {AlZohour, AlSafti, AlManshiya, AlThawraStreet, AhmedMaherStreet, AlQataa, KafrMalit, AlAtf, AlBahrStreet, OutsideAlMahmoudiya}
 
@@ -27,6 +30,10 @@ public class Beneficiary {
         this.fullName = fullName;
         this.age = age;
     }
+
+    public void setNationalId(String nationalId) { this.nationalId = nationalId;}
+    public void setFullName(String fullName) { this.fullName = fullName;}
+    public void setAge(int age) { this.age = age;}
     public void setPhone(String phone) { this.phone = phone; }
     public void setRegion(Region region) { this.region = region; }  
     public void setIncome(double income) { this.income = income; }

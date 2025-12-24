@@ -54,7 +54,7 @@ public class manshiyya extends javax.swing.JFrame {
 
             },
             new String [] {
-                "احتياج", "نوع مسكن", "الداخل", "التليفون", "الوظيفه", "السن", "الحاله", "الاسم"
+                "منطقه", "نوع مسكن", "الداخل", "التليفون", "الوظيفه", "السن", "الحاله", "الاسم"
             }
         ) {
             Class[] types = new Class [] {
@@ -71,8 +71,6 @@ public class manshiyya extends javax.swing.JFrame {
         jScrollPane1.setBounds(0, 192, 1100, 400);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/لوجو.jpg"))); // NOI18N
 
         backButton.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         backButton.setForeground(new java.awt.Color(0, 102, 153));
@@ -160,7 +158,7 @@ public class manshiyya extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 102, 153));
-        jLabel9.setText("احتياج");
+        jLabel9.setText("منطقه");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

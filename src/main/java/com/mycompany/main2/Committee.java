@@ -42,8 +42,6 @@ public class Committee {
     public Type getType()
     { return type; }
 
-    public ArrayList<Project> getProjects() { return projects; }
-    public ArrayList<Beneficiary> getBeneficiaries() { return beneficiaries; }
     
         public void addProject(Project p) {
         if (!projects.contains(p)) {

@@ -279,9 +279,9 @@ public class healty extends javax.swing.JFrame {
     jTextField5.setText("");
    jTextField6.setText("");
     jTextField7.setText("");
-
+       
     }//GEN-LAST:event_addButtonActionPerformed
-
+   
     private void deletButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletButtonActionPerformed
              DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
     int selectedRow = jTable1.getSelectedRow();  // الصف المحدد
@@ -291,6 +291,7 @@ public class healty extends javax.swing.JFrame {
     } else {
         JOptionPane.showMessageDialog(null, "اختر الصف الذي تريد حذفه"); // لو مفيش صف محدد
     }
+
     }//GEN-LAST:event_deletButtonActionPerformed
 
     
@@ -324,48 +325,7 @@ public class healty extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {
-    HelpCase h = new HelpCase();
-    h.name = jTextField1.getText();
-    h.projectName = jTextField2.getText();
-    // نملأ بيانات الصحة فقط والباقي يذهب Null
-    h.examinationType = jTextField3.getText();
-    h.medications = jTextField4.getText();
-    h.medicalAnalysis = jTextField5.getText();
-    h.surgery = jTextField6.getText();
-    h.xRay = jTextField7.getText();
-
-    if (HelpDAO.addHelpCase(h)) {
-        JOptionPane.showMessageDialog(this, "تمت الإضافة");
-        loadData(); // لتحديث الجدول
-    }
-}
-    
-    
-    
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {
-    int selectedRow = jTable1.getSelectedRow();
-    
-    if (selectedRow == -1) {
-        JOptionPane.showMessageDialog(this, "من فضلك اختاري الصف اللي عاوزه تمسحيه");
-        return;
-    }
-
-    // بناخد الاسم من آخر عمود في الجدول (عمود الاسم)
-    int lastColumn = jTable1.getColumnCount() - 1;
-    String nameToDelete = jTable1.getValueAt(selectedRow, lastColumn).toString();
-
-    int confirm = JOptionPane.showConfirmDialog(this, "هل أنتِ متأكدة من حذف: " + nameToDelete + "؟");
-    
-    if (confirm == JOptionPane.YES_OPTION) {
-        if (HelpDAO.deleteHelpCase(nameToDelete)) {
-            JOptionPane.showMessageDialog(this, "تم الحذف بنجاح");
-            loadData(); // تحديث الجدول بعد الحذف
-        } else {
-            JOptionPane.showMessageDialog(this, "حدث خطأ أثناء الحذف");
-        }
-    }
-}
+     
  public void loadData() {
     DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
     model.setRowCount(0);

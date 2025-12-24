@@ -26,9 +26,7 @@ public class Project {
     public void setCommittee(Committee committee) {
         this.committee = committee;
     }
-  public ArrayList<Beneficiary> getBeneficiaries() {
-        return beneficiaries;
-  }
+
 public void addBeneficiary(Beneficiary b) {
         if (!beneficiaries.contains(b)) {
             beneficiaries.add(b);

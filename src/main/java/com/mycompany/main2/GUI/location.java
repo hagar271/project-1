@@ -223,14 +223,16 @@ public class location extends javax.swing.JFrame {
     }//GEN-LAST:event_saftyButtonActionPerformed
 
     private void ahmedmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ahmedmButtonActionPerformed
-       stersor stersorPage = new stersor();
-        stersorPage.setVisible(true);
+      
+            Ahmedma AhmedmaPage = new Ahmedma();
+        AhmedmaPage.setVisible(true);
            this.dispose();
     }//GEN-LAST:event_ahmedmButtonActionPerformed
 
     private void sorhButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sorhButtonActionPerformed
-        Ahmedma AhmedmaPage = new Ahmedma();
-        AhmedmaPage.setVisible(true);
+
+            stersor stersorPage = new stersor();
+        stersorPage.setVisible(true);
            this.dispose();
     }//GEN-LAST:event_sorhButtonActionPerformed
 

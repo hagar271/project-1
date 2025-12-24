@@ -35,6 +35,6 @@ public abstract class User {
    
     public abstract boolean login(String username, String password); 
     public abstract ArrayList<Beneficiary> viewBeneficiaries(); 
-    public abstract ArrayList<Project> viewProjects(); // 
+    public abstract ArrayList<Project> viewProjects(); 
 
 }

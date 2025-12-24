@@ -293,50 +293,6 @@ public class ban extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {
-    HelpCase h = new HelpCase();
-    h.name = jTextField1.getText();
-    h.projectName = jTextField2.getText();
-    
-    // بيانات مشروع إنسان
-    h.clothingAid = jTextField3.getText();
-    h.homeNeeds = jTextField4.getText();
-    h.projectType = jTextField5.getText();
-
-    if (HelpDAO.addHelpCase(h)) {
-        JOptionPane.showMessageDialog(this, "تمت إضافة بيانات مشروع إنسان بنجاح");
-        loadData();
-    } else {
-        JOptionPane.showMessageDialog(this, "حدث خطأ أثناء الحفظ");
-    }
-}
-    
-    
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {
-    int selectedRow = jTable1.getSelectedRow();
-    
-    if (selectedRow == -1) {
-        JOptionPane.showMessageDialog(this, "من فضلك اختاري الصف اللي عاوزه تمسحيه");
-        return;
-    }
-
-    // بناخد الاسم من آخر عمود في الجدول (عمود الاسم)
-    int lastColumn = jTable1.getColumnCount() - 1;
-    String nameToDelete = jTable1.getValueAt(selectedRow, lastColumn).toString();
-
-    int confirm = JOptionPane.showConfirmDialog(this, "هل أنتِ متأكدة من حذف: " + nameToDelete + "؟");
-    
-    if (confirm == JOptionPane.YES_OPTION) {
-        if (HelpDAO.deleteHelpCase(nameToDelete)) {
-            JOptionPane.showMessageDialog(this, "تم الحذف بنجاح");
-            loadData(); // تحديث الجدول بعد الحذف
-        } else {
-            JOptionPane.showMessageDialog(this, "حدث خطأ أثناء الحذف");
-        }
-    }
-}
-    
-    
 public void loadData() {
     DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
     model.setRowCount(0);

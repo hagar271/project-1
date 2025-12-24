@@ -47,7 +47,6 @@ public class comp extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/لوجو.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
 
         backButton.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
@@ -128,7 +127,7 @@ public class comp extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 102, 153));
-        jLabel9.setText("احتياج");
+        jLabel9.setText("منطقه");
 
         jTextField8.setBackground(new java.awt.Color(0, 102, 153));
         jTextField8.setForeground(new java.awt.Color(255, 255, 255));
@@ -141,7 +140,7 @@ public class comp extends javax.swing.JFrame {
 
             },
             new String [] {
-                "اختياج", "نوع مسكن", "الداخل", "التليفون", "الوظيفه", "السن", "الحاله", "الاسم"
+                "منطقه", "نوع مسكن", "الداخل", "التليفون", "الوظيفه", "السن", "الحاله", "الاسم"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -255,16 +254,16 @@ public class comp extends javax.swing.JFrame {
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-           String inside =jTextField1.getText();
-           String phone = jTextField2.getText();
+           String name =jTextField1.getText();
+           String age = jTextField2.getText();
            String job = jTextField3.getText();
-           String age = jTextField4.getText();
+           String phone = jTextField4.getText();
            String status = jTextField5.getText();
-           String name = jTextField6.getText();
+           String inside = jTextField6.getText();
            String house = jTextField7.getText();
            String h = jTextField8.getText();
            
-            if(inside.isEmpty() || phone.isEmpty() || job.isEmpty() || age.isEmpty() || status.isEmpty() || name.isEmpty() || h.isEmpty()|| house.isEmpty() ) {
+            if(name.isEmpty() || age.isEmpty() || job.isEmpty() || phone.isEmpty() || status.isEmpty() || inside.isEmpty() || h.isEmpty()|| house.isEmpty() ) {
           JOptionPane.showMessageDialog(null, "اكمل كل البيانات قبل الإضافة");
         return;
             }

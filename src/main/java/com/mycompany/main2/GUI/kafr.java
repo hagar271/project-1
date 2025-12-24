@@ -1,4 +1,5 @@
 package com.mycompany.main2.GUI;
+import com.mycompany.main2.Beneficiary;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane; // لو مش موجود قبل كده
 
@@ -52,7 +53,6 @@ public class kafr extends javax.swing.JFrame {
         backPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         logoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/لوجو.jpg"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 102, 153));
@@ -67,7 +67,7 @@ public class kafr extends javax.swing.JFrame {
 
             },
             new String [] {
-                "احتياج", "نوع مسكن", "الداخل", "التليفون", "الوظيفه", "السن", "الحاله", "الاسم"
+                "منطقه", "نوع مسكن", "الداخل", "التليفون", "الوظيفه", "السن", "الحاله", "الاسم"
             }
         ) {
             Class[] types = new Class [] {
@@ -166,7 +166,7 @@ public class kafr extends javax.swing.JFrame {
 
         hLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         hLabel.setForeground(new java.awt.Color(0, 102, 153));
-        hLabel.setText("احتياج");
+        hLabel.setText("منطقه");
         hLabel.setToolTipText("");
 
         houseTextField.setBackground(new java.awt.Color(0, 102, 153));
@@ -176,6 +176,11 @@ public class kafr extends javax.swing.JFrame {
         hTextField.setBackground(new java.awt.Color(0, 102, 153));
         hTextField.setForeground(new java.awt.Color(255, 255, 255));
         hTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        hTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hTextFieldActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout backPanelLayout = new javax.swing.GroupLayout(backPanel);
         backPanel.setLayout(backPanelLayout);
@@ -240,8 +245,9 @@ public class kafr extends javax.swing.JFrame {
                         .addComponent(jLabel1)))
                 .addGap(6, 6, 6)
                 .addGroup(backPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(addButton)
-                    .addComponent(hLabel)
+                    .addGroup(backPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(hLabel)
+                        .addComponent(addButton))
                     .addComponent(houseLabel)
                     .addComponent(manyLabel)
                     .addComponent(numberLabel)
@@ -251,9 +257,8 @@ public class kafr extends javax.swing.JFrame {
                     .addGroup(backPanelLayout.createSequentialGroup()
                         .addGap(2, 2, 2)
                         .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(6, 6, 6)
+                .addGap(13, 13, 13)
                 .addGroup(backPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(deletButton)
                     .addComponent(hTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(houseTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(manyTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -261,8 +266,9 @@ public class kafr extends javax.swing.JFrame {
                     .addComponent(jobTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ageTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(caseTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deletButton))
+                .addGap(44, 44, 44)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -297,8 +303,9 @@ public class kafr extends javax.swing.JFrame {
             if(inside.isEmpty() || phone.isEmpty() || job.isEmpty() || age.isEmpty() || status.isEmpty() || name.isEmpty() || h.isEmpty()|| house.isEmpty() ) {
           JOptionPane.showMessageDialog(null, "اكمل كل البيانات قبل الإضافة");
         return;
-            }
+            } 
           model.addRow(new Object[]{h,house,inside,phone, job, age, status,name});
+      
 
     // مسح الحقول بعد الإضافة
     manyTextField.setText("");
@@ -324,6 +331,10 @@ public class kafr extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "اختر الصف الذي تريد حذفه"); // لو مفيش صف محدد
     }
     }//GEN-LAST:event_deletButtonActionPerformed
+
+    private void hTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_hTextFieldActionPerformed
 
     
     public static void main(String args[]) {

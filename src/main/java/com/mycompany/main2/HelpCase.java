@@ -20,7 +20,7 @@ public    String medications;
  public   String schoolBooks;
 
     // الديون
-public    String debtReason;
+   public    String debtReason;
    public String debtValue;
    public String officialDocuments;
 
@@ -36,8 +36,7 @@ public    String debtReason;
   public  String readyMealsCount;
   public  String unreadyMealsCount;
 
-    // ===== getters فقط (الـ GUI مش محتاج setters غالبًا) =====
-    
+
     public String getName() { return name; }
 
  

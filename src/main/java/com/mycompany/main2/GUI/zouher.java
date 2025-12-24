@@ -48,8 +48,6 @@ public class zouher extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/لوجو.jpg"))); // NOI18N
-
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 153));
         jLabel2.setText("وزاره التضامن الاجتماعي");
@@ -71,7 +69,7 @@ public class zouher extends javax.swing.JFrame {
 
             },
             new String [] {
-                "احتياج", "نوع المسكن", "الداخل", "التليفون", "الوظيفه", "السن", "الحاله", "الاسم"
+                "منطقه", "نوع المسكن", "الداخل", "التليفون", "الوظيفه", "السن", "الحاله", "الاسم"
             }
         ) {
             Class[] types = new Class [] {
@@ -181,7 +179,7 @@ public class zouher extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 102, 153));
-        jLabel10.setText("احتياج");
+        jLabel10.setText("منطقه");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -283,7 +281,7 @@ public class zouher extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 1089, 628);
+        jPanel1.setBounds(0, 0, 1086, 612);
 
         setBounds(0, 0, 1106, 592);
     }// </editor-fold>//GEN-END:initComponents

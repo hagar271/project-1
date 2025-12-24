@@ -14,7 +14,7 @@ public class UserDAO {
 
     public static User loginUser(String usernameOrID, String passwordHash) {
         
-        // 1. الاستعلام: يجلب البيانات الأساسية للمصادقة وتحديد الدور
+
         String sql = "SELECT national_id, full_name, role, user_name " + 
                      "FROM people WHERE (national_id = ? OR user_name = ?) AND password_hash = ?";
         
@@ -28,7 +28,7 @@ public class UserDAO {
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
                     String nationalId = rs.getString("national_id");
-                 //استخدام trim لإزالة اي مسافات
+
                     String role = rs.getString("role").trim(); 
                     String fullName = rs.getString("full_name");
                     
@@ -42,7 +42,7 @@ public class UserDAO {
                     } 
                     
                     if (role.startsWith("leader")) {
-                        // تحديد اسم اللجنة ونوعها
+         
                         String commName;
                         String commType;
                         
@@ -57,11 +57,11 @@ public class UserDAO {
                             return null;
                         }
                         
-                        // نعتمد على كلاس ProjectAndCommitteeDAO لاسترجاع اللجنة
+
                         Committee committee = ProjectAndCommitteeDAO.getCommitteeByName(commName);
                         
                         if (committee == null) {
-                            // إذا لم يتم العثور على اللجنة (قد تكون قاعدة البيانات غير جاهزة)
+
                              committee = new Committee(0, commName, commType.equals("fixed") ? Committee.Type.Fixed : Committee.Type.NonFixed);
                         }
                         
